@@ -1,22 +1,17 @@
+#include "blockchain.h"
 #include <iostream>
-#include "block.h"
-#include "blockchain.cpp"
 
 int main() {
-    Blockchain myChain(3, 500);
+    Blockchain bc;
+    bc.registerValidator("Validator1", 1500);
 
-    myChain.registerValidator("Validator1", 1000);
+    bc.addBlock("First Block", "Validator1", 1500);
+    bc.addBlock("Second Block", "Validator1", 1500);
 
-    myChain.addBlock("First block data", "Validator1", 1000);
-    myChain.addBlock("Second block data", "Validator1", 1000);
+    std::cout << "\nBlockchain:\n";
+    bc.printChain();
 
-    myChain.printChain();
-    
-    if (myChain.isChainValid()) {
-        std::cout << "Blockchain is valid!" << std::endl;
-    } else {
-        std::cout << "Blockchain is NOT valid!" << std::endl;
-    }
+    std::cout << "\nIs blockchain valid? " << (bc.isChainValid() ? "Yes" : "No") << "\n";
 
     return 0;
 }
