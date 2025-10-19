@@ -1,31 +1,41 @@
 async function loadBlockchain() {
-    const res = await fetch('blockchain.json');
-    const blockchain = await res.json();
-
     const container = document.getElementById('chain');
-    container.innerHTML = '';
+    
+    try {
+        const res = await fetch('blockchain.json');
+        const blockchain = await res.json();
 
-    const keys = Object.keys(blockchain);
-    keys.forEach((key, idx) => {
-        const block = blockchain[key];
+        container.innerHTML = '';
 
-        const blockDiv = document.createElement('div');
-        blockDiv.className = 'block';
-        blockDiv.innerHTML = `
-            <b>Index:</b> ${block.index}<br>
-            <b>Data:</b> ${block.data}<br>
-            <b>Hash:</b> <code>${block.hash}</code><br>
-            <b>PrevHash:</b> <code>${block.previousHash}</code>
-        `;
-        container.appendChild(blockDiv);
-
-        // Only add arrow if next block exists on the same row
-        if (idx < keys.length - 1) {
-            const arrowDiv = document.createElement('div');
-            arrowDiv.className = 'arrow';
-            container.appendChild(arrowDiv);
-        }
-    });
+        Object.values(blockchain).forEach(block => {
+            const blockDiv = document.createElement('div');
+            blockDiv.className = 'block';
+            blockDiv.innerHTML = `
+                <div class="block-header">
+                    <div class="block-index">BLOCK #${block.index}</div>
+                    <div class="block-icon">⛓️</div>
+                </div>
+                <div class="block-content">
+                    <div class="block-field">
+                        <div class="block-label">Data</div>
+                        <div class="block-value">${block.data}</div>
+                    </div>
+                    <div class="block-field">
+                        <div class="block-label">Hash</div>
+                        <div class="block-hash">${block.hash}</div>
+                    </div>
+                    <div class="block-field">
+                        <div class="block-label">Previous Hash</div>
+                        <div class="block-hash prev-hash">${block.previousHash}</div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(blockDiv);
+        });
+    } catch (error) {
+        container.innerHTML = '<div class="loading">Error loading blockchain.json</div>';
+        console.error('Error loading blockchain:', error);
+    }
 }
 
 loadBlockchain();
