@@ -1,32 +1,79 @@
+/* General styles */
 body {
-    font-family: sans-serif;
-    background: #111;
+    font-family: 'Segoe UI', sans-serif;
+    background: #121212;
     color: #eee;
+    margin: 0;
     padding: 20px;
 }
 
-h1 {
+header h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: #FFD700;
 }
 
-#blocks {
+/* Chain layout */
+.chain {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;       /* Allow wrapping when no space */
+    justify-content: flex-start;
+    gap: 20px 40px;        /* vertical and horizontal gap */
 }
 
+/* Block card */
 .block {
-    border: 1px solid #555;
-    border-radius: 8px;
-    background: #222;
-    margin: 10px;
-    padding: 15px;
-    width: 80%;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    background: #1E1E1E;
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 220px;
+    max-width: 220px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-code {
-    color: #0f0;
-    word-break: break-all;
+.block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+}
+
+.block b { color: #FFD700; }
+.block code { color: #0f0; word-break: break-all; }
+
+/* Arrow between blocks */
+.arrow {
+    width: 40px;
+    height: 2px;
+    background: #888;
+    align-self: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -6px;
+    border: 6px solid transparent;
+    border-left-color: #888;
+}
+
+/* Mobile / small screens */
+@media (max-width: 768px) {
+    .chain {
+        gap: 20px 20px;
+    }
+    .block {
+        min-width: calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .block {
+        min-width: 100%;
+        max-width: 100%;
+    }
 }
