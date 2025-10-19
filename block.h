@@ -29,7 +29,17 @@ public:
     void mine(int difficulty);
     bool isValid();
 
-        json to_json() const {
+    json to_json() const {
+        json txs = json::array();
+        for (const auto& tx : transactions) {
+            txs.push_back({
+                {"type", tx.type},
+                {"from", tx.from},
+                {"to", tx.to},
+                {"amount", tx.amount},
+                {"hash", tx.hash()}
+            });
+        }
         return json{
             {"index", index},
             {"previousHash", previousHash},
@@ -38,7 +48,8 @@ public:
             {"hash", hash},
             {"nonce", nonce},
             {"validator", validatorSignature},
-            {"stake", stake}
+            {"stake", stake},
+            {"transactions", txs}
         };
     }
 };

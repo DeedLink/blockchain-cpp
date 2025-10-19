@@ -7,36 +7,76 @@
         "previousHash": "0",
         "stake": 0,
         "timestamp": "Genesis Block",
+        "transactions": [],
         "validator": ""
     },
     {
         "data": "First block after genesis",
-        "hash": "00f196846e82de268044a140cfb5c336bdcafe3160821cfce128f50a2d7bd84d",
+        "hash": "005842e3d05c40c93ba396436db899dd69ccee88efaa0a9bb696d474444360a6",
         "index": 1,
-        "nonce": 34,
+        "nonce": 85,
         "previousHash": "",
         "stake": 0,
         "timestamp": "DSL block",
+        "transactions": [
+            {
+                "amount": 500,
+                "from": "",
+                "hash": "aaa2b1b96595a5708db261353622f29997e91707ee7b75a3b99309849801fb2e",
+                "to": "Alice",
+                "type": "MINT"
+            },
+            {
+                "amount": 300,
+                "from": "",
+                "hash": "7b4e2ab935a370b449328c8b84c5ba2916e80f966d5f941d7273084171b86609",
+                "to": "Bob",
+                "type": "MINT"
+            },
+            {
+                "amount": 200,
+                "from": "",
+                "hash": "60219918ecc6844d9555a6c104e58f2c3b6996b70897ad8456c943d4ab420f11",
+                "to": "Carol",
+                "type": "MINT"
+            },
+            {
+                "amount": 150,
+                "from": "Alice",
+                "hash": "79e123ba5fcfc6641bb01d1bb4804927fea6ddf603359e40287c63523187b2ea",
+                "to": "Bob",
+                "type": "TRANSFER"
+            },
+            {
+                "amount": 50,
+                "from": "Bob",
+                "hash": "1b4088fef9c7e8f285eb75c054e1a83b04498eb2e3654826fe9af2ab14cf8ca7",
+                "to": "Carol",
+                "type": "TRANSFER"
+            }
+        ],
         "validator": "DSL"
     },
     {
         "data": "Second block with more data",
-        "hash": "00dd44dd731c2b49d74167de2843381e3144e40490efebb3ecb9329525072d0c",
+        "hash": "00a8f1f762e9335bc8abbed0bd922993aff93808a3440ab64c59bb05014e46ad",
         "index": 2,
-        "nonce": 159,
-        "previousHash": "00f196846e82de268044a140cfb5c336bdcafe3160821cfce128f50a2d7bd84d",
+        "nonce": 246,
+        "previousHash": "005842e3d05c40c93ba396436db899dd69ccee88efaa0a9bb696d474444360a6",
         "stake": 0,
         "timestamp": "DSL block",
+        "transactions": [],
         "validator": "DSL"
     },
     {
         "data": "Third block for testing",
-        "hash": "005241206087f3de22477a598d39fc1e9e6d7bb976017e852f92ebfecead9a57",
+        "hash": "0023cf44b62176a36ffd055b84f3a664bbb4c043811607db4056500685e87ece",
         "index": 3,
-        "nonce": 179,
-        "previousHash": "00dd44dd731c2b49d74167de2843381e3144e40490efebb3ecb9329525072d0c",
+        "nonce": 57,
+        "previousHash": "00a8f1f762e9335bc8abbed0bd922993aff93808a3440ab64c59bb05014e46ad",
         "stake": 0,
         "timestamp": "DSL block",
+        "transactions": [],
         "validator": "DSL"
     }
 ]
