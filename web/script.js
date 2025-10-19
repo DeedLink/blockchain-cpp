@@ -7,9 +7,19 @@ async function loadBlockchain() {
 
         container.innerHTML = '';
 
-        Object.values(blockchain).forEach(block => {
+        blockchain.forEach(block => {
             const blockDiv = document.createElement('div');
             blockDiv.className = 'block';
+
+            let transactionsHTML = '';
+            if (block.transactions && block.transactions.length > 0) {
+                transactionsHTML = `<div class="block-transactions"><strong>Transactions:</strong><ul>`;
+                block.transactions.forEach(tx => {
+                    transactionsHTML += `<li>${tx.type} | from: ${tx.from} | to: ${tx.to} | amount: ${tx.amount} | hash: ${tx.hash}</li>`;
+                });
+                transactionsHTML += `</ul></div>`;
+            }
+
             blockDiv.innerHTML = `
                 <div class="block-header">
                     <div class="block-index">BLOCK #${block.index}</div>
@@ -28,6 +38,7 @@ async function loadBlockchain() {
                         <div class="block-label">Previous Hash</div>
                         <div class="block-hash prev-hash">${block.previousHash}</div>
                     </div>
+                    ${transactionsHTML}
                 </div>
             `;
             container.appendChild(blockDiv);
