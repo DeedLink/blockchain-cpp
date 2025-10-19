@@ -1,15 +1,14 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -O2 -Iinclude
+CXXFLAGS = -std=c++17 -I.
 LDFLAGS = -lssl -lcrypto
-
-SRC = main.cpp block.cpp blockchain.cpp transaction.cpp
+SRC = main.cpp block.cpp blockchain.cpp token.cpp dsl.cpp transaction.cpp
 OBJ = $(SRC:.cpp=.o)
 TARGET = blockchain
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
-	$(CXX) $(OBJ) -o $@ $(LDFLAGS)
+	$(CXX) $(OBJ) $(LDFLAGS) -o $(TARGET)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@

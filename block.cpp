@@ -17,7 +17,7 @@ std::string Block::calculateMerkleRoot() const {
     while (hashes.size() > 1) {
         std::vector<std::string> newLevel;
         for (size_t i = 0; i < hashes.size(); i += 2) {
-            if (i + 1 < hashes.size()) newLevel.push_back(sha256(hashes[i] + hashes[i + 1]));
+            if (i + 1 < hashes.size()) newLevel.push_back(sha256(hashes[i] + hashes[i+1]));
             else newLevel.push_back(hashes[i]);
         }
         hashes = newLevel;

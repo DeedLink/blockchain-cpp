@@ -1,0 +1,17 @@
+# Register validators
+VALIDATOR Alice 100
+VALIDATOR Bob 50
+
+# Mint tokens to users
+MINT Alice 500
+MINT Bob 300
+MINT Carol 200
+
+# Transfer tokens between users
+TRANSFER Alice Bob 150
+TRANSFER Bob Carol 50
+
+# Add blocks to the blockchain
+BLOCK First block after genesis
+BLOCK Second block with more data
+BLOCK Third block for testing

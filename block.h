@@ -3,6 +3,9 @@
 #include <string>
 #include <cstdint>
 #include "transaction.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 class Block {
 public:
@@ -25,4 +28,17 @@ public:
     std::string calculateHash();
     void mine(int difficulty);
     bool isValid();
+
+        json to_json() const {
+        return json{
+            {"index", index},
+            {"previousHash", previousHash},
+            {"timestamp", timestamp},
+            {"data", data},
+            {"hash", hash},
+            {"nonce", nonce},
+            {"validator", validatorSignature},
+            {"stake", stake}
+        };
+    }
 };

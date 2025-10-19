@@ -1,20 +1,42 @@
 [
     {
         "data": "Genesis Block",
-        "hash": "d894de287307c6e646599a69ef054fe0bf9c157e46d2d396232d320dbe326b3d",
+        "hash": "",
         "index": 0,
-        "previousHash": "0"
+        "nonce": 0,
+        "previousHash": "0",
+        "stake": 0,
+        "timestamp": "Genesis Block",
+        "validator": ""
     },
     {
-        "data": "Block 1 Data",
-        "hash": "be068120ab8bb64608415cb51f068845d43102c00c8724252036f767d01d4a52",
+        "data": "First block after genesis",
+        "hash": "00f196846e82de268044a140cfb5c336bdcafe3160821cfce128f50a2d7bd84d",
         "index": 1,
-        "previousHash": "d894de287307c6e646599a69ef054fe0bf9c157e46d2d396232d320dbe326b3d"
+        "nonce": 34,
+        "previousHash": "",
+        "stake": 0,
+        "timestamp": "DSL block",
+        "validator": "DSL"
     },
     {
-        "data": "Block 2 Data",
-        "hash": "488931a65dcdf413c4d87cab88f15aa5ab57c1b65779bc1eafe1724d9a1c7930",
+        "data": "Second block with more data",
+        "hash": "00dd44dd731c2b49d74167de2843381e3144e40490efebb3ecb9329525072d0c",
         "index": 2,
-        "previousHash": "be068120ab8bb64608415cb51f068845d43102c00c8724252036f767d01d4a52"
+        "nonce": 159,
+        "previousHash": "00f196846e82de268044a140cfb5c336bdcafe3160821cfce128f50a2d7bd84d",
+        "stake": 0,
+        "timestamp": "DSL block",
+        "validator": "DSL"
+    },
+    {
+        "data": "Third block for testing",
+        "hash": "005241206087f3de22477a598d39fc1e9e6d7bb976017e852f92ebfecead9a57",
+        "index": 3,
+        "nonce": 179,
+        "previousHash": "00dd44dd731c2b49d74167de2843381e3144e40490efebb3ecb9329525072d0c",
+        "stake": 0,
+        "timestamp": "DSL block",
+        "validator": "DSL"
     }
 ]
