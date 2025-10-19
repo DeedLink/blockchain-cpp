@@ -28,12 +28,14 @@ void DSL::executeFile(const std::string& filename) {
             std::string to; uint64_t amount;
             iss >> to >> amount;
             token.mint(to, amount);
-            std::cout << "Minted " << amount << " to " << to << "\n";
+            Transaction tx("MINT", to, "", amount);
+            tempTransactions.push_back(tx);
         } else if (cmd == "TRANSFER") {
             std::string from, to; uint64_t amount;
             iss >> from >> to >> amount;
             token.transfer(from, to, amount);
-            std::cout << "Transferred " << amount << " from " << from << " to " << to << "\n";
+            Transaction tx("TRANSFER", to, from, amount);
+            tempTransactions.push_back(tx);
         } else if (cmd == "BLOCK") {
             std::string data;
             std::getline(iss, data);
@@ -43,6 +45,7 @@ void DSL::executeFile(const std::string& filename) {
             newBlock.mine(2);
             blockchain.push_back(newBlock);
             std::cout << "Block added: " << data << "\n";
+            tempTransactions.clear();
         } else {
             std::cerr << "Unknown command: " << cmd << "\n";
         }

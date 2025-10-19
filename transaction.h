@@ -1,10 +1,15 @@
 #pragma once
 #include <string>
-#include "sha256.h"
+#include <cstdint>
 
 class Transaction {
 public:
-    std::string data;
-    Transaction(const std::string& d) : data(d) {}
+    std::string type;
+    std::string from;
+    std::string to;
+    uint64_t amount;
+
+    Transaction(const std::string& t, const std::string& f, const std::string& tt, uint64_t a);
+
     std::string hash() const;
 };
